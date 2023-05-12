@@ -15,11 +15,10 @@ export default function Existing() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(nameRef.current.value)
         if (storage.checkWallet(passwordRef.current.value, nameRef.current.value)) {
             dispatch({ type: 'SET_VIEW', param: 'dashboard' })            
         } else {
-            // error message
+            dispatch({type:'SET_ERROR',param:'no wallet with these credentials'})           
         }
 
     }
